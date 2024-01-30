@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 
-function Button({ category, setCategories }) {
+function Button({ category, setCategories, selectedCategory, setSelectedCategory }) {
 const [className, setClassName] = useState("")
 
-  function handleClick() {
+  function handleClick(category) {
     console.log(`${category}`)
     setClassName("selected");
-    setCategories(category);
+    setSelectedCategory(selectedCategory);
 
   }
   return (

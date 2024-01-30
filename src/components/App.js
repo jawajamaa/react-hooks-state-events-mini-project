@@ -13,27 +13,27 @@ const [categories, setCategories] = useState(CATEGORIES)
 const [selectedCategory, setSelectedCategory] = useState("All");
 
 
-function onCategoryChange(category) {
-  console.log(JSON.stringify(category));
+function onCategoryChange(selectedCategory) {
+  console.log(JSON.stringify(selectedCategory));
   console.log(filteredTasks);
   // setTasks (filteredTasks);
 }
 
-const filteredTasks = tasks.filter(task => task.category === category);
+const filteredTasks = tasks.filter(task => task.category === selectedCategory);
 
   return (
     <div className="App">
       <h2>My tasks</h2>
       <CategoryFilter 
       categories = { categories }
-      setCategories = { onCategoryChange }
+      setCategories = { setCategories }
       selectedCategory = { selectedCategory }
-      setSelectedCategory = { setSelectedCategory }
+      setSelectedCategory = { onCategoryChange }
 
       />
       <NewTaskForm />
       <TaskList 
-      tasks = { filteredTasks }
+      tasks = { tasks }
       setTasks = { setTasks }
       />
     </div>

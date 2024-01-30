@@ -4,9 +4,15 @@ import Button from "./Button";
 function CategoryFilter({ categories, setCategories, selectedCategory, setSelectedCategory}) {
   console.log( categories )
 
-function onFilterChange(category) {
-  console.log(`${category}`)
-  setCategories(category);
+// function onFilterChange(category) {
+//   console.log(`${category}`)
+//   setCategories(category);
+// }
+
+function onCategoryChange(selectedCategory) {
+    console.log(`${selectedCategory}`)
+    setSelectedCategory(selectedCategory);
+  
 }
   
   return (
@@ -17,7 +23,9 @@ function onFilterChange(category) {
     key = { category }
     category = { category }
     categories = { categories }
-    setCategories = { onFilterChange }
+    setCategories = { setCategories }
+    selectedCategory = { selectedCategory }
+    setSelectedCategory = { onCategoryChange }
     />
     ))}
     </div>
