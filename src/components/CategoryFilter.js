@@ -10,7 +10,7 @@ function CategoryFilter({ categories, setCategories, selectedCategory, setSelect
 // }
 
 function onCategoryChange(selectedCategory) {
-    console.log(`${selectedCategory}`)
+    console.log(selectedCategory)
     setSelectedCategory(selectedCategory);
   
 }

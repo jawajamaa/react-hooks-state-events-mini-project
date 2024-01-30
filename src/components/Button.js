@@ -3,11 +3,11 @@ import React, { useState } from 'react'
 function Button({ category, setCategories, selectedCategory, setSelectedCategory }) {
 const [className, setClassName] = useState("")
 
-  function handleClick(category) {
-    console.log(`${category}`)
+  function handleClick(event) {
     setClassName("selected");
-    setSelectedCategory(selectedCategory);
-
+    setSelectedCategory(event.target.textContent);
+    console.log(event.target.textContent)
+    console.log(`${selectedCategory}`)
   }
   return (
     <button className = { className } onClick = { handleClick }>{ category } </button>

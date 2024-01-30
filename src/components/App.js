@@ -10,16 +10,17 @@ console.log({ CATEGORIES, TASKS });
 function App() {
 const [tasks, setTasks] = useState(TASKS)
 const [categories, setCategories] = useState(CATEGORIES)
-const [selectedCategory, setSelectedCategory] = useState("All");
+const [selectedCategory, setSelectedCategory] = useState("");
 
 
 function onCategoryChange(selectedCategory) {
   console.log(JSON.stringify(selectedCategory));
+  const filteredTasks = tasks.filter(task => console.log(task.category));
   console.log(filteredTasks);
   // setTasks (filteredTasks);
 }
 
-const filteredTasks = tasks.filter(task => task.category === selectedCategory);
+// const filteredTasks = tasks.filter(task => task.category === JSON.stringify(selectedCategory));
 
   return (
     <div className="App">
