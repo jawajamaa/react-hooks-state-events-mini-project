@@ -7,7 +7,7 @@ const [className, setClassName] = useState("")
     setClassName("selected");
     setSelectedCategory(event.target.textContent);
     console.log(event.target.textContent)
-    console.log(`${selectedCategory}`)
+    console.log(JSON.stringify(selectedCategory))
   }
   return (
     <button className = { className } onClick = { handleClick }>{ category } </button>

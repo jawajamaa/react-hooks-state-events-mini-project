@@ -8,19 +8,27 @@ console.log("Here's the data you're working with");
 console.log({ CATEGORIES, TASKS });
 
 function App() {
-const [tasks, setTasks] = useState(TASKS)
-const [categories, setCategories] = useState(CATEGORIES)
-const [selectedCategory, setSelectedCategory] = useState("");
+  const [tasks, setTasks] = useState(TASKS)
+  const [categories, setCategories] = useState(CATEGORIES)
+  const [selectedCategory, setSelectedCategory] = useState("");
 
 
-function onCategoryChange(selectedCategory) {
-  console.log(JSON.stringify(selectedCategory));
-  const filteredTasks = tasks.filter(task => console.log(task.category));
-  console.log(filteredTasks);
-  // setTasks (filteredTasks);
-}
+  function onCategoryChange(selectedCategory) {
+    console.log(selectedCategory);
+    setSelectedCategory(selectedCategory);
+    console.log(selectedCategory);
+  }
+console.log(tasks);
 
-// const filteredTasks = tasks.filter(task => task.category === JSON.stringify(selectedCategory));
+  const filteredTasks = tasks.filter(task => {
+    if (selectedCategory.trimEnd() === "All") {
+      return true;
+    }
+
+    return task.category === selectedCategory.trimEnd()
+  });
+
+console.log(filteredTasks);
 
   return (
     <div className="App">
@@ -34,7 +42,7 @@ function onCategoryChange(selectedCategory) {
       />
       <NewTaskForm />
       <TaskList 
-      tasks = { tasks }
+      tasks = { filteredTasks }
       setTasks = { setTasks }
       />
     </div>
