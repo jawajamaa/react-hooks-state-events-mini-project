@@ -10,8 +10,11 @@ console.log({ CATEGORIES, TASKS });
 function App() {
   const [tasks, setTasks] = useState(TASKS)
   const [categories, setCategories] = useState(CATEGORIES)
-  const [selectedCategory, setSelectedCategory] = useState("");
-
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [formData, setFormData] = useState({
+    text: "",
+    category: "All"
+  });
 
   function onCategoryChange(selectedCategory) {
     console.log(selectedCategory);
@@ -28,6 +31,10 @@ console.log(tasks);
     return task.category === selectedCategory.trimEnd()
   });
 
+  function onTaskFormSubmit() { 
+    setTasks(tasks=>[...tasks, formData])
+  }
+
 console.log(filteredTasks);
 
   return (
@@ -40,7 +47,14 @@ console.log(filteredTasks);
       setSelectedCategory = { onCategoryChange }
 
       />
-      <NewTaskForm />
+      <NewTaskForm
+      categories = { categories }
+      setCategories = { setCategories } 
+      tasks = { tasks }
+      setTasks = { onTaskFormSubmit }
+      formData = { formData }
+      setFormData = { setFormData }
+      />
       <TaskList 
       tasks = { filteredTasks }
       setTasks = { setTasks }
