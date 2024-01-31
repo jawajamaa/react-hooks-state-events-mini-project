@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
-function NewTaskForm({ categories, formData, onTaskFormSubmit, setFormData, setTasks }) {
-  // const [formData, setFormData] = useState({
-  //   text: "",
-  //   category: "All"
-  // });
+function NewTaskForm({ categories, onTaskFormSubmit, setTasks }) {
+  const [formData, setFormData] = useState({
+    text: "",
+    category: "All"
+  });
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setTasks(()=>onTaskFormSubmit);
+    onTaskFormSubmit(formData);
   }
 
   const handleInput = (event) => {

@@ -1,11 +1,8 @@
 import React from "react";
 
 function Task({ category, taskId, text, setTasks }) {
-console.log({ taskId })
 
   function handleDelete() {
-console.log(taskId)
-console.log(text);
     setTasks(taskId);
   }
 

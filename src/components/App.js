@@ -4,24 +4,21 @@ import NewTaskForm from "./NewTaskForm";
 import TaskList from "./TaskList";
 
 import { CATEGORIES, TASKS } from "../data";
-console.log("Here's the data you're working with");
-console.log({ CATEGORIES, TASKS });
+// console.log("Here's the data you're working with");
+// console.log({ CATEGORIES, TASKS });
 
 function App() {
   const [tasks, setTasks] = useState(TASKS)
   const [categories, setCategories] = useState(CATEGORIES)
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [formData, setFormData] = useState({
-    text: "",
-    category: "All"
-  });
+
 
   function onCategoryChange(selectedCategory) {
-    console.log(selectedCategory);
+    // console.log(selectedCategory);
     setSelectedCategory(selectedCategory);
-    console.log(selectedCategory);
+    // console.log(selectedCategory);
   }
-console.log(tasks);
+// console.log(tasks);
 
   const filteredTasks = tasks.filter(task => {
     if (selectedCategory.trimEnd() === "All") {
@@ -31,11 +28,15 @@ console.log(tasks);
     return task.category === selectedCategory.trimEnd()
   });
 
-  function onTaskFormSubmit() { 
+  // function onTaskFormSubmit() { 
+  //   setTasks(tasks=>[...tasks, formData])
+  // }
+  const onTaskFormSubmit = (formData) => { 
+// console.log(formData);
     setTasks(tasks=>[...tasks, formData])
   }
 
-console.log(filteredTasks);
+// console.log(filteredTasks);
 
   return (
     <div className="App">
@@ -51,9 +52,8 @@ console.log(filteredTasks);
       categories = { categories }
       setCategories = { setCategories } 
       tasks = { tasks }
-      setTasks = { onTaskFormSubmit }
-      formData = { formData }
-      setFormData = { setFormData }
+      onTaskFormSubmit = { onTaskFormSubmit }
+  
       />
       <TaskList 
       tasks = { filteredTasks }

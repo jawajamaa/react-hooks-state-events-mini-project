@@ -2,11 +2,11 @@ import React from "react";
 import Button from "./Button";
 
 function CategoryFilter({ categories, setCategories, selectedCategory, setSelectedCategory}) {
-  console.log( categories )
+  // console.log( categories )
 
 
   function onCategoryChange(selectedCategory) {
-      console.log(selectedCategory)
+      // console.log(selectedCategory)
       setSelectedCategory(selectedCategory);
   
 }

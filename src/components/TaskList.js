@@ -3,13 +3,9 @@ import Task from "./Task";
 import { v4 as uuid } from "uuid";
 
 function TaskList( {tasks, setTasks } ) {
-  console.log({ tasks });
 
   function onSetTasks(taskId) {
-    console.log({ tasks });
-    console.log(taskId);
     const newTasks = tasks.filter(task => task.text !== taskId)
-    console.log({ newTasks });
     setTasks(newTasks);
   }
 
